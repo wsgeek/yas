@@ -38,6 +38,8 @@
 
 #include <yas/detail/type_traits/type_traits.hpp>
 
+#include <utility>
+
 namespace yas {
 
 /***************************************************************************/
