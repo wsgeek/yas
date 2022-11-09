@@ -37,6 +37,7 @@
 #define __yas__tools__wrap_asis_hpp
 
 #include <yas/detail/type_traits/type_traits.hpp>
+#include <utility>
 
 namespace yas {
 
