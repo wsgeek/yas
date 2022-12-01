@@ -141,7 +141,7 @@ struct binary_ostream {
 
     // for float and double
     template<typename T>
-    void write(const T &v, __YAS_ENABLE_IF_IS_ANY_OF(T, float, double)) {
+    void write(const T &v, __YAS_ENABLE_IF_IS_ANY_OF(T, float, double, long double)) {
         __YAS_CONSTEXPR_IF( __YAS_BSWAP_NEEDED(F) ) {
             const auto r = endian_converter::to_network(v);
             __YAS_THROW_WRITE_ERROR(sizeof(r) != os.write(&r, sizeof(r)));
@@ -265,7 +265,7 @@ struct binary_istream {
 
     // for floats and doubles
     template<typename T>
-    void read(T &v, __YAS_ENABLE_IF_IS_ANY_OF(T, float, double)) {
+    void read(T &v, __YAS_ENABLE_IF_IS_ANY_OF(T, float, double, long double)) {
         __YAS_CONSTEXPR_IF( __YAS_BSWAP_NEEDED(F) ) {
             typename storage_type<T>::type r;
             __YAS_THROW_READ_ERROR(sizeof(r) != is.read(&r, sizeof(r)));
